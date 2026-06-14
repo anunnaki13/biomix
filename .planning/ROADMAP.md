@@ -10,7 +10,7 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 - Integer phases (1, 2, 3): Planned milestone work.
 - Decimal phases (2.1, 2.2): Urgent insertions, if needed later.
 
-- [ ] **Phase 1: Project Setup and Domain Skeleton** - Scaffold the runnable app, shell, domain types, defaults, validation, formatting, and repo docs.
+- [x] **Phase 1: Project Setup and Domain Skeleton** - Scaffold the runnable app, shell, domain types, defaults, validation, formatting, and repo docs.
 - [ ] **Phase 2: Calculation Engine** - Implement all core formulas, warning/status logic, and minimum unit tests.
 - [ ] **Phase 3: Dashboard UI** - Render calculated feasibility results from the default scenario.
 - [ ] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
@@ -33,10 +33,10 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01: Scaffold Next.js, TypeScript, Tailwind, shadcn/ui, charts, forms, state, validation, and test tooling.
-- [ ] 01-02: Create AppShell, dashboard route placeholder, navigation, and folder structure.
-- [ ] 01-03: Define types, default scenarios, validators, and Indonesian formatters.
-- [ ] 01-04: Write README and verify the app/test commands start cleanly.
+- [x] 01-01: Scaffold Next.js, TypeScript, Tailwind, shadcn/ui, charts, forms, state, validation, and test tooling.
+- [x] 01-02: Create AppShell, dashboard route placeholder, navigation, and folder structure.
+- [x] 01-03: Define types, default scenarios, validators, and Indonesian formatters.
+- [x] 01-04: Write README and verify the app/test commands start cleanly.
 
 ### Phase 2: Calculation Engine
 **Goal**: Implement deterministic BIOMIX feasibility formulas and prove the minimum blueprint test cases pass.
@@ -150,7 +150,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Setup and Domain Skeleton | 0/4 | Not started | - |
+| 1. Project Setup and Domain Skeleton | 4/4 | Complete | 2026-06-14 |
 | 2. Calculation Engine | 0/5 | Not started | - |
 | 3. Dashboard UI | 0/3 | Not started | - |
 | 4. Input Forms | 0/4 | Not started | - |

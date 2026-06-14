@@ -7,19 +7,19 @@
 
 ### Foundation
 
-- [ ] **SETUP-01**: Developer can run a Next.js 15+ TypeScript app with Tailwind CSS, shadcn/ui, Recharts, Lucide React, React Hook Form, Zod, Zustand, and Vitest installed.
-- [ ] **SETUP-02**: User can open a dashboard route rendered inside an AppShell with sidebar and topbar navigation.
-- [ ] **SETUP-03**: Developer can find app routes, components, calculation modules, defaults, validators, formatters, store, and tests in the folder structure defined by the blueprint.
-- [ ] **SETUP-04**: Developer can read a concise README with app purpose, feature list, tech stack, and development commands.
+- [x] **SETUP-01**: Developer can run a Next.js 15+ TypeScript app with Tailwind CSS, shadcn/ui, Recharts, Lucide React, React Hook Form, Zod, Zustand, and Vitest installed.
+- [x] **SETUP-02**: User can open a dashboard route rendered inside an AppShell with sidebar and topbar navigation.
+- [x] **SETUP-03**: Developer can find app routes, components, calculation modules, defaults, validators, formatters, store, and tests in the folder structure defined by the blueprint.
+- [x] **SETUP-04**: Developer can read a concise README with app purpose, feature list, tech stack, and development commands.
 
 ### Data Contracts
 
-- [ ] **DATA-01**: Developer can use typed `Scenario`, production, feedstock, quality, pricing, OPEX, CAPEX, transport, financing, and tax models.
-- [ ] **DATA-02**: Developer can use typed `FeasibilityResult` output models for production, quality, pricing, cost, transport, CAPEX, financing, profit, break-even, status, and warnings.
-- [ ] **DATA-03**: User can load a default 20 TPD 50:50 sekam padi and sawdust base case scenario.
-- [ ] **DATA-04**: User can choose conservative, base case, and optimistic scenario presets.
-- [ ] **DATA-05**: Developer can validate scenario inputs with Zod rules for non-negative prices, percentage ranges, mix total, operating days/hours, pricing requirements, financing requirements, and GCV presence.
-- [ ] **DATA-06**: User sees currency, number, and percent values formatted for Indonesian business usage.
+- [x] **DATA-01**: Developer can use typed `Scenario`, production, feedstock, quality, pricing, OPEX, CAPEX, transport, financing, and tax models.
+- [x] **DATA-02**: Developer can use typed `FeasibilityResult` output models for production, quality, pricing, cost, transport, CAPEX, financing, profit, break-even, status, and warnings.
+- [x] **DATA-03**: User can load a default 20 TPD 50:50 sekam padi and sawdust base case scenario.
+- [x] **DATA-04**: User can choose conservative, base case, and optimistic scenario presets.
+- [x] **DATA-05**: Developer can validate scenario inputs with Zod rules for non-negative prices, percentage ranges, mix total, operating days/hours, pricing requirements, financing requirements, and GCV presence.
+- [x] **DATA-06**: User sees currency, number, and percent values formatted for Indonesian business usage.
 
 ### Calculation Engine
 
@@ -106,16 +106,16 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SETUP-01 | Phase 1 | Pending |
-| SETUP-02 | Phase 1 | Pending |
-| SETUP-03 | Phase 1 | Pending |
-| SETUP-04 | Phase 1 | Pending |
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| DATA-04 | Phase 1 | Pending |
-| DATA-05 | Phase 1 | Pending |
-| DATA-06 | Phase 1 | Pending |
+| SETUP-01 | Phase 1 | Complete |
+| SETUP-02 | Phase 1 | Complete |
+| SETUP-03 | Phase 1 | Complete |
+| SETUP-04 | Phase 1 | Complete |
+| DATA-01 | Phase 1 | Complete |
+| DATA-02 | Phase 1 | Complete |
+| DATA-03 | Phase 1 | Complete |
+| DATA-04 | Phase 1 | Complete |
+| DATA-05 | Phase 1 | Complete |
+| DATA-06 | Phase 1 | Complete |
 | CALC-01 | Phase 2 | Pending |
 | CALC-02 | Phase 2 | Pending |
 | CALC-03 | Phase 2 | Pending |
@@ -161,4 +161,4 @@
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-14 after initialization from BIOMIX blueprint*
+*Last updated: 2026-06-14 after Phase 1 completion*
