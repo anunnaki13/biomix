@@ -3,6 +3,7 @@
 import { FormPageHeader } from "@/components/forms/FormPageHeader";
 import { FormSection } from "@/components/forms/FormSection";
 import { MoneyInput } from "@/components/forms/MoneyInput";
+import { OpexCustomItemTable } from "@/components/forms/OpexCustomItemTable";
 import { ScenarioValidationCard } from "@/components/forms/ScenarioValidationCard";
 import { useActiveScenario } from "@/store/useActiveScenario";
 
@@ -135,6 +136,14 @@ export default function OpexInputPage() {
             }
           />
         </div>
+      </FormSection>
+
+      <FormSection
+        eyebrow="Flexible OPEX"
+        title="Item OPEX tambahan"
+        description="Tambahkan item biaya bulanan lain di luar field standar, misalnya loader, security, sewa alat, atau biaya pihak ketiga."
+      >
+        <OpexCustomItemTable />
       </FormSection>
     </section>
   );

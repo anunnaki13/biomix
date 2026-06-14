@@ -14,6 +14,16 @@ import {
 } from "@/lib/storage/localScenarioStore";
 import type { Scenario } from "@/types/biomass";
 
+function normalizeScenario(scenario: Scenario): Scenario {
+  return {
+    ...scenario,
+    opex: {
+      ...scenario.opex,
+      customItems: scenario.opex.customItems ?? [],
+    },
+  };
+}
+
 interface ScenarioStore {
   scenarios: Scenario[];
   activeScenarioId: string;
@@ -101,7 +111,7 @@ export const useScenarioStore = create<ScenarioStore>()(
           const firstScenarioId = merged[0]?.id ?? defaultScenario20TpdMix.id;
 
           return {
-            scenarios: merged,
+            scenarios: merged.map(normalizeScenario),
             activeScenarioId: firstScenarioId,
             defaultScenarioId: firstScenarioId,
           };
@@ -146,7 +156,7 @@ export const useScenarioStore = create<ScenarioStore>()(
         };
 
         return {
-          scenarios: state?.scenarios ?? defaultScenarios,
+          scenarios: (state?.scenarios ?? defaultScenarios).map(normalizeScenario),
           activeScenarioId:
             state?.activeScenarioId ??
             state?.defaultScenarioId ??

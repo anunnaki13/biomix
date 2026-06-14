@@ -96,6 +96,7 @@ export const defaultScenario20TpdMix: Scenario = {
     rentMonthly: 5000000,
     adminMonthly: 3000000,
     otherMonthly: 3000000,
+    customItems: [],
   },
   capex: {
     contingencyPct: 10,

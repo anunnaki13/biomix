@@ -73,6 +73,15 @@ export const scenarioSchema = z
       rentMonthly: z.number().min(0),
       adminMonthly: z.number().min(0),
       otherMonthly: z.number().min(0),
+      customItems: z
+        .array(
+          z.object({
+            id: z.string().min(1),
+            name: z.string().min(1),
+            amountMonthly: z.number().min(0),
+          }),
+        )
+        .default([]),
     }),
     capex: z.object({
       items: z.array(

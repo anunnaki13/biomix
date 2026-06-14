@@ -88,6 +88,13 @@ export interface OpexConfig {
   rentMonthly: number;
   adminMonthly: number;
   otherMonthly: number;
+  customItems: OpexLineItem[];
+}
+
+export interface OpexLineItem {
+  id: string;
+  name: string;
+  amountMonthly: number;
 }
 
 export interface CapexItem {

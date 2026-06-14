@@ -32,6 +32,11 @@ export function calculateOpex(
         : 0;
   const feedstockCostPerMonth =
     feedstock.totalFeedstockCostPerDay * scenario.production.operatingDaysPerMonth;
+  const customItems = scenario.opex.customItems ?? [];
+  const customItemsMonthly = customItems.reduce(
+    (sum, item) => sum + item.amountMonthly,
+    0,
+  );
   const nonFeedstockOpexPerMonth =
     utilityPerMonth +
     scenario.opex.laborMonthly +
@@ -42,6 +47,7 @@ export function calculateOpex(
     scenario.opex.rentMonthly +
     scenario.opex.adminMonthly +
     scenario.opex.otherMonthly +
+    customItemsMonthly +
     (transport.isIncludedInOpex ? transport.outboundTransportMonthly : 0);
   const totalOpexPerMonth = feedstockCostPerMonth + nonFeedstockOpexPerMonth;
   const totalOpexPerDay = totalOpexPerMonth / scenario.production.operatingDaysPerMonth;
@@ -61,6 +67,10 @@ export function calculateOpex(
     { label: "Rent", value: scenario.opex.rentMonthly },
     { label: "Admin", value: scenario.opex.adminMonthly },
     { label: "Other", value: scenario.opex.otherMonthly },
+    ...customItems.map((item) => ({
+      label: item.name,
+      value: item.amountMonthly,
+    })),
     {
       label: "Transport",
       value: transport.isIncludedInOpex ? transport.outboundTransportMonthly : 0,
