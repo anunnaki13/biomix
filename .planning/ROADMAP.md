@@ -14,7 +14,7 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 - [x] **Phase 2: Calculation Engine** - Implement all core formulas, warning/status logic, and minimum unit tests.
 - [x] **Phase 3: Dashboard UI** - Render calculated feasibility results from the default scenario.
 - [x] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
-- [ ] **Phase 5: Scenario Management and Persistence** - Save, duplicate, delete, compare, import, and export scenarios locally.
+- [x] **Phase 5: Scenario Management and Persistence** - Save, duplicate, delete, compare, import, and export scenarios locally.
 - [ ] **Phase 6: Sensitivity and Break-Even** - Add sensitivity table, tornado chart, and break-even analysis.
 - [ ] **Phase 7: Report Export and MVP Polish** - Add report page, print/PDF/CSV/JSON export, and acceptance polish.
 
@@ -105,9 +105,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: Implement scenario store, local storage, active/default scenario behavior.
-- [ ] 05-02: Build scenario management UI and comparison table.
-- [ ] 05-03: Implement JSON import/export with validation and error handling.
+- [x] 05-01: Implement scenario store, local storage, active/default scenario behavior.
+- [x] 05-02: Build scenario management UI and comparison table.
+- [x] 05-03: Implement JSON import/export with validation and error handling.
 
 ### Phase 6: Sensitivity and Break-Even
 **Goal**: Show which assumptions most affect profitability and what thresholds define feasibility.
@@ -154,7 +154,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 2. Calculation Engine | 5/5 | Complete | 2026-06-14 |
 | 3. Dashboard UI | 3/3 | Complete | 2026-06-15 |
 | 4. Input Forms | 4/4 | Complete | 2026-06-15 |
-| 5. Scenario Management and Persistence | 0/3 | Not started | - |
+| 5. Scenario Management and Persistence | 3/3 | Complete | 2026-06-15 |
 | 6. Sensitivity and Break-Even | 0/3 | Not started | - |
 | 7. Report Export and MVP Polish | 0/3 | Not started | - |
 

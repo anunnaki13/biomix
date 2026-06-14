@@ -4,13 +4,31 @@ function stamp() {
   return new Date().toISOString();
 }
 
-function cloneScenario(
+export function cloneScenario(
   base: Scenario,
   overrides: Partial<Scenario> & { id: string; name: string },
 ): Scenario {
   return {
     ...base,
     ...overrides,
+    createdAt: stamp(),
+    updatedAt: stamp(),
+  };
+}
+
+export function createScenarioId(prefix = "scenario") {
+  return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+export function createScenarioFromBase(
+  base: Scenario = defaultScenario20TpdMix,
+  overrides?: Partial<Scenario>,
+): Scenario {
+  return {
+    ...structuredClone(base),
+    ...overrides,
+    id: overrides?.id ?? createScenarioId(),
+    name: overrides?.name ?? `${base.name} Copy`,
     createdAt: stamp(),
     updatedAt: stamp(),
   };

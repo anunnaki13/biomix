@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** Phase 5 - Scenario Management and Persistence
+**Current focus:** Phase 6 - Sensitivity and Break-Even
 
 ## Current Position
 
-Phase: 5 of 7 (Scenario Management and Persistence)
+Phase: 6 of 7 (Sensitivity and Break-Even)
 Plan: 0 of 3 in current phase
-Status: Phase 4 complete
-Last activity: 2026-06-15 - Completed live scenario input pages, reusable form controls, and realtime state-driven editing
+Status: Phase 5 complete
+Last activity: 2026-06-15 - Completed local-first scenario CRUD, persistence, JSON portability, and compare table
 
-Progress: [######----] 64%
+Progress: [#######---] 76%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
+- Total plans completed: 19
 - Average duration: 11 min
-- Total execution time: 2.8 hours
+- Total execution time: 3.2 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [######----] 64%
 | 2 | 5 | 55 min | 11 min |
 | 3 | 3 | 30 min | 10 min |
 | 4 | 4 | 36 min | 9 min |
+| 5 | 3 | 24 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 10m, 9m, 9m, 9m, 8m
+- Last 5 plans: 9m, 9m, 8m, 8m, 7m
 - Trend: Improving
 
 ## Accumulated Context
@@ -56,10 +57,12 @@ Recent decisions affecting current work:
 - Phase 3: Use compact KPI formatting and guarded chart hydration to keep the finance dashboard readable and clean in Next.js.
 - Phase 4: Keep form components simple and controlled from Zustand instead of adding heavier orchestration before the MVP really needs it.
 - Phase 4: Show schema validity near input pages so users can see invalid business states while editing.
+- Phase 5: Persist only essential scenario state so localStorage stays transparent and easier to evolve.
+- Phase 5: Run imported JSON back through the schema before accepting it into the store.
 
 ### Pending Todos
 
-- Phase 5 planning and execution.
+- Phase 6 planning and execution.
 
 ### Blockers/Concerns
 
@@ -77,5 +80,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-14
-Stopped at: Phase 4 completed and all major input pages edit the active scenario; next focus is scenario persistence and management
+Stopped at: Phase 5 completed and scenario persistence/compare is live; next focus is sensitivity and break-even depth
 Resume file: None
