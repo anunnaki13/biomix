@@ -38,6 +38,8 @@ export interface PricingResult {
   sellingPricePerTon: number;
   hptFobPerTon?: number;
   deliveredPricePerTon?: number;
+  transportPassThroughPerTon?: number;
+  rejectRisk: boolean;
   priceModeLabel: string;
 }
 
@@ -73,6 +75,11 @@ export interface CapexResult {
   subtotal: number;
   contingencyValue: number;
   totalCapex: number;
+  opexBufferValue: number;
+  feedstockStockBuffer: number;
+  receivableBuffer: number;
+  totalWorkingCapital: number;
+  totalInitialCapital: number;
   monthlyDepreciation?: number;
 }
 

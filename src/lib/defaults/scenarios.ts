@@ -128,6 +128,12 @@ export const defaultScenario20TpdMix: Scenario = {
       },
     ],
   },
+  workingCapital: {
+    opexBufferMonths: 1,
+    feedstockStockDays: 7,
+    receivableDays: 30,
+    cashReserve: 25000000,
+  },
   transport: {
     mode: "SELLER_PAID",
     truckCapacityTon: 24,

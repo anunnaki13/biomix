@@ -14,6 +14,7 @@ export interface Scenario {
   pricing: PricingConfig;
   opex: OpexConfig;
   capex: CapexConfig;
+  workingCapital: WorkingCapitalConfig;
   transport: TransportConfig;
   financing: FinancingConfig;
   tax: TaxConfig;
@@ -29,6 +30,7 @@ export interface ProductionConfig {
   downtimePct: number;
   rejectRatePct: number;
   handlingLossPct: number;
+  machineRatedCapacityKgPerHour?: number;
 }
 
 export interface Feedstock {
@@ -100,6 +102,13 @@ export interface CapexItem {
 export interface CapexConfig {
   items: CapexItem[];
   contingencyPct: number;
+}
+
+export interface WorkingCapitalConfig {
+  opexBufferMonths: number;
+  feedstockStockDays: number;
+  receivableDays: number;
+  cashReserve: number;
 }
 
 export interface TransportConfig {

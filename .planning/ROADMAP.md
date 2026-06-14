@@ -11,7 +11,7 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 - Decimal phases (2.1, 2.2): Urgent insertions, if needed later.
 
 - [x] **Phase 1: Project Setup and Domain Skeleton** - Scaffold the runnable app, shell, domain types, defaults, validation, formatting, and repo docs.
-- [ ] **Phase 2: Calculation Engine** - Implement all core formulas, warning/status logic, and minimum unit tests.
+- [x] **Phase 2: Calculation Engine** - Implement all core formulas, warning/status logic, and minimum unit tests.
 - [ ] **Phase 3: Dashboard UI** - Render calculated feasibility results from the default scenario.
 - [ ] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
 - [ ] **Phase 5: Scenario Management and Persistence** - Save, duplicate, delete, compare, import, and export scenarios locally.
@@ -51,11 +51,11 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 02-01: Implement production, feedstock blending, quality, and GCV conversion calculations.
-- [ ] 02-02: Implement pricing, transport, OPEX, CAPEX, working capital, and financing calculations.
-- [ ] 02-03: Implement profit, break-even, status, and warning engine calculations.
-- [ ] 02-04: Wire `calculateFeasibility` and default scenario through the full engine.
-- [ ] 02-05: Add Vitest coverage for required formula cases and edge risks.
+- [x] 02-01: Implement production, feedstock blending, quality, and GCV conversion calculations.
+- [x] 02-02: Implement pricing, transport, OPEX, CAPEX, working capital, and financing calculations.
+- [x] 02-03: Implement profit, break-even, status, and warning engine calculations.
+- [x] 02-04: Wire `calculateFeasibility` and default scenario through the full engine.
+- [x] 02-05: Add Vitest coverage for required formula cases and edge risks.
 
 ### Phase 3: Dashboard UI
 **Goal**: Show the default BIOMIX scenario as an industrial-finance dashboard powered by the calculation engine.
@@ -151,7 +151,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Setup and Domain Skeleton | 4/4 | Complete | 2026-06-14 |
-| 2. Calculation Engine | 0/5 | Not started | - |
+| 2. Calculation Engine | 5/5 | Complete | 2026-06-14 |
 | 3. Dashboard UI | 0/3 | Not started | - |
 | 4. Input Forms | 0/4 | Not started | - |
 | 5. Scenario Management and Persistence | 0/3 | Not started | - |

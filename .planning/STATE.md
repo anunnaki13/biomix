@@ -5,32 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** Phase 2 - Calculation Engine
+**Current focus:** Phase 3 - Dashboard UI
 
 ## Current Position
 
-Phase: 2 of 7 (Calculation Engine)
-Plan: 0 of 5 in current phase
-Status: Phase 1 complete
-Last activity: 2026-06-14 - Completed scaffold, app shell, domain contracts, README, and smoke verification for Phase 1
+Phase: 3 of 7 (Dashboard UI)
+Plan: 0 of 3 in current phase
+Status: Phase 2 complete
+Last activity: 2026-06-14 - Completed calculation engine, blueprint tests, and connected homepage KPI cards to live engine output
 
-Progress: [#---------] 14%
+Progress: [###-------] 36%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 12 min
-- Total execution time: 0.8 hours
+- Total plans completed: 9
+- Average duration: 11 min
+- Total execution time: 1.7 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 4 | 48 min | 12 min |
+| 2 | 5 | 55 min | 11 min |
 
 **Recent Trend:**
-- Last 5 plans: 18m, 16m, 8m, 6m
+- Last 5 plans: 14m, 12m, 11m, 9m, 9m
 - Trend: Improving
 
 ## Accumulated Context
@@ -47,10 +48,12 @@ Recent decisions affecting current work:
 - Initialization: Check active ports before starting BIOMIX dev/preview servers and use an unused port.
 - Phase 1: Keep the root route anchored in BIOMIX assumptions and workflow context until real feasibility math is wired in.
 - Phase 1: Add scenario validation and formatting before editable forms so later inputs inherit enforceable business rules.
+- Phase 2: Extend the domain model with working-capital and machine-capacity hooks now, so later forms can stay additive.
+- Phase 2: Keep pricing, transport, cost, and warning rules modular instead of hiding them inside one monolithic calculator.
 
 ### Pending Todos
 
-- Phase 2 planning and execution.
+- Phase 3 planning and execution.
 
 ### Blockers/Concerns
 
@@ -68,5 +71,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-14
-Stopped at: Phase 1 completed and repo is ready for Calculation Engine planning/execution
+Stopped at: Phase 2 completed and homepage now reads live engine output; next focus is Dashboard UI depth
 Resume file: None

@@ -1,28 +1,18 @@
 import { KpiCard } from "@/components/dashboard/KpiCard";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
 import { WarningPanel } from "@/components/dashboard/WarningPanel";
+import { calculateFeasibility } from "@/lib/calculations";
 import { formatIDR } from "@/lib/formatters/currency";
-import { formatPercent } from "@/lib/formatters/percentage";
 import { formatNumber } from "@/lib/formatters/number";
+import { formatPercent } from "@/lib/formatters/percentage";
 import { defaultScenario20TpdMix } from "@/lib/defaults/scenarios";
-
-const warnings = [
-  "Calculation engine penuh belum aktif di Phase 1, jadi dashboard saat ini menampilkan anchor data dan bukan hasil profit final.",
-  "Transport dan warning teknis lengkap akan dipakai langsung dari formula engine di Phase 2.",
-  "Port aktif wajib dicek sebelum menjalankan server dev atau preview di VPS ini.",
-];
 
 export default function HomePage() {
   const scenario = defaultScenario20TpdMix;
-  const monthlyPellet =
-    scenario.production.targetPelletTonPerDay *
-    scenario.production.operatingDaysPerMonth;
-
-  const averageFeedstock =
-    scenario.feedstocks.reduce(
-      (sum, item) => sum + item.pricePerKg * (item.mixPct / 100),
-      0,
-    ) || 0;
+  const result = calculateFeasibility(scenario);
+  const warnings = result.warnings.map(
+    (warning) => `${warning.title}: ${warning.message}`,
+  );
 
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
@@ -34,76 +24,102 @@ export default function HomePage() {
                 Dashboard Overview
               </p>
               <h1 className="font-display text-4xl font-semibold text-text-primary">
-                BIOMIX awal sudah hidup, sekarang pondasinya siap untuk formula.
+                BIOMIX sudah menghitung baseline feasibility dari scenario default.
               </h1>
               <p className="max-w-3xl text-sm leading-7 text-text-secondary">
-                Phase 1 menyiapkan shell industrial-finance, default scenario 20
-                TPD, kontrak data, validasi, dan formatting. Nilai di bawah ini
-                adalah anchor assumptions dari blueprint, bukan hasil perhitungan
-                kelayakan final.
+                Homepage ini sekarang membaca langsung calculation engine Phase 2,
+                jadi angka HPT, HPP, margin, modal awal, dan warning sudah
+                traceable ke formula blueprint.
               </p>
             </div>
-            <StatusBadge status="LAYAK_DENGAN_CATATAN" />
+            <StatusBadge status={result.status.overallStatus} />
           </div>
         </section>
 
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <KpiCard
             label="Output Pellet / Hari"
-            value={`${formatNumber(
-              scenario.production.targetPelletTonPerDay,
-              0,
-            )} ton`}
-            note={`Mode ${scenario.production.calculationMode.replaceAll("_", " ")}`}
+            value={`${formatNumber(result.production.pelletTonPerDay, 1)} ton`}
+            note={`Raw input ${formatNumber(result.production.rawInputTonPerDay, 2)} ton/hari`}
           />
           <KpiCard
             label="Output Pellet / Bulan"
-            value={`${formatNumber(monthlyPellet, 0)} ton`}
-            note={`${formatNumber(
-              scenario.production.operatingDaysPerMonth,
-              0,
-            )} hari operasi`}
+            value={`${formatNumber(result.production.pelletTonPerMonth, 0)} ton`}
+            note={`${formatNumber(scenario.production.operatingDaysPerMonth, 0)} hari operasi`}
           />
           <KpiCard
-            label="Harga Feedstock Rata-rata"
-            value={formatIDR(averageFeedstock)}
-            note="Rata-rata berbobot dari mix sekam dan sawdust"
+            label="Harga Jual / Ton"
+            value={formatIDR(result.pricing.sellingPricePerTon)}
+            note={result.pricing.priceModeLabel}
           />
           <KpiCard
-            label="Yield Pellet"
-            value={formatPercent(scenario.production.pelletizingYieldPct, 0)}
-            note="Anchor assumption untuk masuk ke Phase 2"
+            label="HPP / Ton"
+            value={formatIDR(result.cost.hppPerTon)}
+            note={`Margin ${formatIDR(result.profit.grossProfitPerTon)}/ton`}
+          />
+        </section>
+
+        <section className="grid gap-4 xl:grid-cols-4">
+          <KpiCard
+            label="Laba Bersih / Bulan"
+            value={formatIDR(result.profit.netProfitPerMonth)}
+            note={`Gross margin ${formatPercent(result.profit.grossMarginPct * 100, 1)}`}
+          />
+          <KpiCard
+            label="Modal Awal"
+            value={formatIDR(result.capex.totalInitialCapital)}
+            note={`CAPEX ${formatIDR(result.capex.totalCapex)}`}
+          />
+          <KpiCard
+            label="Payback"
+            value={
+              result.profit.simplePaybackMonths
+                ? `${formatNumber(result.profit.simplePaybackMonths, 1)} bulan`
+                : "Belum balik modal"
+            }
+            note={`ROI tahunan ${
+              result.profit.roiAnnualPct !== null
+                ? formatPercent(result.profit.roiAnnualPct * 100, 1)
+                : "-"
+            }`}
+          />
+          <KpiCard
+            label="Transport / Ton"
+            value={formatIDR(result.transport.outboundTransportPerTon)}
+            note={`${formatNumber(result.transport.tripsPerMonth, 0)} trip/bulan`}
           />
         </section>
 
         <section className="grid gap-4 lg:grid-cols-2">
           <article className="panel rounded-2xl p-6">
             <p className="text-xs uppercase tracking-[0.24em] text-accent-green">
-              Anchor Assumptions
+              Technical and Pricing Snapshot
             </p>
             <div className="mt-5 grid gap-3 text-sm text-text-secondary">
               <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                 <span>GCV ARB</span>
                 <strong className="font-display text-text-primary">
-                  {formatNumber(scenario.quality.gcvArb ?? 0)} kcal/kg
+                  {formatNumber(result.quality.gcvArb)} kcal/kg
                 </strong>
               </div>
               <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                <span>Total Moisture ARB</span>
+                <span>Total Moisture</span>
                 <strong className="font-display text-text-primary">
                   {formatPercent(scenario.quality.totalMoistureArbPct, 0)}
                 </strong>
               </div>
               <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                <span>Mode Pricing</span>
+                <span>Technical Status</span>
                 <strong className="font-display text-text-primary">
-                  {scenario.pricing.mode}
+                  {result.quality.technicalStatus}
                 </strong>
               </div>
               <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                <span>Mode Transport</span>
+                <span>Break-even GCV</span>
                 <strong className="font-display text-text-primary">
-                  {scenario.transport.mode}
+                  {result.breakEven.minimumGcvForBreakEven
+                    ? `${formatNumber(result.breakEven.minimumGcvForBreakEven)} kcal/kg`
+                    : "-"}
                 </strong>
               </div>
             </div>
@@ -111,28 +127,27 @@ export default function HomePage() {
 
           <article className="panel rounded-2xl p-6">
             <p className="text-xs uppercase tracking-[0.24em] text-accent-amber">
-              Feedstock Mix
+              Cost Breakdown
             </p>
             <div className="mt-5 space-y-3">
-              {scenario.feedstocks.map((feedstock) => (
+              {result.cost.costBreakdown.map((item) => (
                 <div
-                  key={feedstock.id}
+                  key={item.label}
                   className="rounded-xl border border-white/10 bg-white/5 px-4 py-4"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="font-display text-lg text-text-primary">
-                        {feedstock.name}
+                        {item.label}
                       </p>
                       <p className="mt-1 text-sm text-text-secondary">
-                        GCV {formatNumber(feedstock.gcvKcalPerKg)} kcal/kg •
-                        Moisture {formatPercent(feedstock.moisturePct, 0)}
+                        {formatIDR(item.value)} per bulan
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm text-text-secondary">Mix</p>
+                      <p className="text-sm text-text-secondary">Per ton</p>
                       <p className="font-display text-xl text-text-primary">
-                        {formatPercent(feedstock.mixPct, 0)}
+                        {formatIDR(item.perTon)}
                       </p>
                     </div>
                   </div>
@@ -144,7 +159,12 @@ export default function HomePage() {
       </div>
 
       <div className="xl:sticky xl:top-4 xl:self-start">
-        <WarningPanel warnings={warnings} />
+        <WarningPanel
+          warnings={warnings}
+          badgeLabel={result.status.overallStatus.replaceAll("_", " ")}
+          title="Risk and Feasibility Flags"
+          emptyState="Scenario default ini belum memunculkan warning aktif."
+        />
       </div>
     </div>
   );

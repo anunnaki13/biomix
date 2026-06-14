@@ -116,21 +116,21 @@
 | DATA-04 | Phase 1 | Complete |
 | DATA-05 | Phase 1 | Complete |
 | DATA-06 | Phase 1 | Complete |
-| CALC-01 | Phase 2 | Pending |
-| CALC-02 | Phase 2 | Pending |
-| CALC-03 | Phase 2 | Pending |
-| CALC-04 | Phase 2 | Pending |
-| CALC-05 | Phase 2 | Pending |
-| CALC-06 | Phase 2 | Pending |
-| CALC-07 | Phase 2 | Pending |
-| CALC-08 | Phase 2 | Pending |
-| CALC-09 | Phase 2 | Pending |
-| CALC-10 | Phase 2 | Pending |
-| CALC-11 | Phase 2 | Pending |
-| TEST-01 | Phase 2 | Pending |
-| TEST-02 | Phase 2 | Pending |
-| TEST-03 | Phase 2 | Pending |
-| TEST-04 | Phase 2 | Pending |
+| CALC-01 | Phase 2 | Complete |
+| CALC-02 | Phase 2 | Complete |
+| CALC-03 | Phase 2 | Complete |
+| CALC-04 | Phase 2 | Complete |
+| CALC-05 | Phase 2 | Complete |
+| CALC-06 | Phase 2 | Complete |
+| CALC-07 | Phase 2 | Complete |
+| CALC-08 | Phase 2 | Complete |
+| CALC-09 | Phase 2 | Complete |
+| CALC-10 | Phase 2 | Complete |
+| CALC-11 | Phase 2 | Complete |
+| TEST-01 | Phase 2 | Complete |
+| TEST-02 | Phase 2 | Complete |
+| TEST-03 | Phase 2 | Complete |
+| TEST-04 | Phase 2 | Complete |
 | DASH-01 | Phase 3 | Pending |
 | DASH-02 | Phase 3 | Pending |
 | DASH-03 | Phase 3 | Pending |
@@ -161,4 +161,4 @@
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-14 after Phase 1 completion*
+*Last updated: 2026-06-14 after Phase 2 completion*

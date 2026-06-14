@@ -32,6 +32,7 @@ export const scenarioSchema = z
       downtimePct: z.number().min(0).max(100),
       rejectRatePct: z.number().min(0).max(100),
       handlingLossPct: z.number().min(0).max(100),
+      machineRatedCapacityKgPerHour: z.number().min(0).optional(),
     }),
     feedstocks: z.array(feedstockSchema).min(1),
     quality: z.object({
@@ -85,6 +86,12 @@ export const scenarioSchema = z
         }),
       ),
       contingencyPct: z.number().min(0).max(100),
+    }),
+    workingCapital: z.object({
+      opexBufferMonths: z.number().min(0),
+      feedstockStockDays: z.number().min(0),
+      receivableDays: z.number().min(0),
+      cashReserve: z.number().min(0),
     }),
     transport: z.object({
       mode: z.enum(["FOB", "SELLER_PAID", "PASS_THROUGH", "DDP"]),
