@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 
-import { defaultScenario20TpdMix, scenarioPresets } from "@/lib/defaults/scenarios";
+import { defaultScenario20TpdMix, defaultScenarios, scenarioPresets } from "@/lib/defaults/scenarios";
 import type { Scenario } from "@/types/biomass";
 
 interface ScenarioStore {
@@ -14,7 +14,7 @@ interface ScenarioStore {
 }
 
 export const useScenarioStore = create<ScenarioStore>((set) => ({
-  scenarios: [defaultScenario20TpdMix],
+  scenarios: defaultScenarios,
   activeScenarioId: defaultScenario20TpdMix.id,
   presetLabels: scenarioPresets,
   setActiveScenario: (id) => set({ activeScenarioId: id }),

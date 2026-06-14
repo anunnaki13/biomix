@@ -4,6 +4,18 @@ function stamp() {
   return new Date().toISOString();
 }
 
+function cloneScenario(
+  base: Scenario,
+  overrides: Partial<Scenario> & { id: string; name: string },
+): Scenario {
+  return {
+    ...base,
+    ...overrides,
+    createdAt: stamp(),
+    updatedAt: stamp(),
+  };
+}
+
 export const defaultScenario20TpdMix: Scenario = {
   id: "default-20tpd-mix",
   name: "20 TPD Mix Sekam + Sawdust Base Case",
@@ -157,19 +169,83 @@ export const defaultScenario20TpdMix: Scenario = {
   },
 };
 
+export const conservativeScenario20TpdMix: Scenario = cloneScenario(
+  defaultScenario20TpdMix,
+  {
+    id: "scenario-conservative-20tpd",
+    name: "20 TPD Mix Konservatif",
+    description:
+      "Yield lebih rendah, biaya bahan baku dan transport lebih tinggi, dan kualitas mendekati batas bawah.",
+    production: {
+      ...defaultScenario20TpdMix.production,
+      pelletizingYieldPct: 88,
+      operatingDaysPerMonth: 24,
+      downtimePct: 10,
+    },
+    feedstocks: defaultScenario20TpdMix.feedstocks.map((feedstock) => ({
+      ...feedstock,
+      pricePerKg: Math.round(feedstock.pricePerKg * 1.15),
+    })),
+    quality: {
+      ...defaultScenario20TpdMix.quality,
+      gcvArb: 3500,
+      totalMoistureArbPct: 23,
+    },
+    transport: {
+      ...defaultScenario20TpdMix.transport,
+      costPerTrip: Math.round(defaultScenario20TpdMix.transport.costPerTrip * 1.2),
+    },
+  },
+);
+
+export const optimisticScenario20TpdMix: Scenario = cloneScenario(
+  defaultScenario20TpdMix,
+  {
+    id: "scenario-optimistic-20tpd",
+    name: "20 TPD Mix Optimis",
+    description:
+      "Yield lebih tinggi, biaya logistik dan bahan baku lebih efisien, dan kualitas produk menguat.",
+    production: {
+      ...defaultScenario20TpdMix.production,
+      pelletizingYieldPct: 95,
+      operatingDaysPerMonth: 26,
+      downtimePct: 2,
+    },
+    feedstocks: defaultScenario20TpdMix.feedstocks.map((feedstock) => ({
+      ...feedstock,
+      pricePerKg: Math.round(feedstock.pricePerKg * 0.9),
+    })),
+    quality: {
+      ...defaultScenario20TpdMix.quality,
+      gcvArb: 4000,
+      totalMoistureArbPct: 18,
+    },
+    transport: {
+      ...defaultScenario20TpdMix.transport,
+      costPerTrip: Math.round(defaultScenario20TpdMix.transport.costPerTrip * 0.9),
+    },
+  },
+);
+
+export const defaultScenarios: Scenario[] = [
+  conservativeScenario20TpdMix,
+  defaultScenario20TpdMix,
+  optimisticScenario20TpdMix,
+];
+
 export const scenarioPresets = [
   {
-    id: "conservative",
+    id: conservativeScenario20TpdMix.id,
     label: "Konservatif",
     notes: "Yield lebih rendah, biaya bahan baku dan transport lebih tinggi.",
   },
   {
-    id: "base-case",
+    id: defaultScenario20TpdMix.id,
     label: "Base Case",
     notes: "Asumsi standar untuk evaluasi utama.",
   },
   {
-    id: "optimistic",
+    id: optimisticScenario20TpdMix.id,
     label: "Optimis",
     notes: "Yield lebih tinggi, biaya lebih efisien, dan harga jual sedikit naik.",
   },

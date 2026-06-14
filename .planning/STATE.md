@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** Phase 3 - Dashboard UI
+**Current focus:** Phase 4 - Input Forms
 
 ## Current Position
 
-Phase: 3 of 7 (Dashboard UI)
-Plan: 0 of 3 in current phase
-Status: Phase 2 complete
-Last activity: 2026-06-14 - Completed calculation engine, blueprint tests, and connected homepage KPI cards to live engine output
+Phase: 4 of 7 (Input Forms)
+Plan: 0 of 4 in current phase
+Status: Phase 3 complete
+Last activity: 2026-06-15 - Completed scenario-driven dashboard, charts, sensitivity snapshot, and topbar switching
 
-Progress: [###-------] 36%
+Progress: [####------] 48%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 12
 - Average duration: 11 min
-- Total execution time: 1.7 hours
+- Total execution time: 2.2 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [###-------] 36%
 |-------|-------|-------|----------|
 | 1 | 4 | 48 min | 12 min |
 | 2 | 5 | 55 min | 11 min |
+| 3 | 3 | 30 min | 10 min |
 
 **Recent Trend:**
-- Last 5 plans: 14m, 12m, 11m, 9m, 9m
+- Last 5 plans: 12m, 11m, 10m, 9m, 9m
 - Trend: Improving
 
 ## Accumulated Context
@@ -50,10 +51,12 @@ Recent decisions affecting current work:
 - Phase 1: Add scenario validation and formatting before editable forms so later inputs inherit enforceable business rules.
 - Phase 2: Extend the domain model with working-capital and machine-capacity hooks now, so later forms can stay additive.
 - Phase 2: Keep pricing, transport, cost, and warning rules modular instead of hiding them inside one monolithic calculator.
+- Phase 3: Drive the dashboard from Zustand active scenario state so future forms only need to update state, not custom render paths.
+- Phase 3: Use compact KPI formatting and guarded chart hydration to keep the finance dashboard readable and clean in Next.js.
 
 ### Pending Todos
 
-- Phase 3 planning and execution.
+- Phase 4 planning and execution.
 
 ### Blockers/Concerns
 
@@ -71,5 +74,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-14
-Stopped at: Phase 2 completed and homepage now reads live engine output; next focus is Dashboard UI depth
+Stopped at: Phase 3 completed and dashboard is scenario-driven; next focus is input forms and realtime editing
 Resume file: None
