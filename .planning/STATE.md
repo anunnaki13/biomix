@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** Phase 4 - Input Forms
+**Current focus:** Phase 5 - Scenario Management and Persistence
 
 ## Current Position
 
-Phase: 4 of 7 (Input Forms)
-Plan: 0 of 4 in current phase
-Status: Phase 3 complete
-Last activity: 2026-06-15 - Completed scenario-driven dashboard, charts, sensitivity snapshot, and topbar switching
+Phase: 5 of 7 (Scenario Management and Persistence)
+Plan: 0 of 3 in current phase
+Status: Phase 4 complete
+Last activity: 2026-06-15 - Completed live scenario input pages, reusable form controls, and realtime state-driven editing
 
-Progress: [####------] 48%
+Progress: [######----] 64%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 16
 - Average duration: 11 min
-- Total execution time: 2.2 hours
+- Total execution time: 2.8 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [####------] 48%
 | 1 | 4 | 48 min | 12 min |
 | 2 | 5 | 55 min | 11 min |
 | 3 | 3 | 30 min | 10 min |
+| 4 | 4 | 36 min | 9 min |
 
 **Recent Trend:**
-- Last 5 plans: 12m, 11m, 10m, 9m, 9m
+- Last 5 plans: 10m, 9m, 9m, 9m, 8m
 - Trend: Improving
 
 ## Accumulated Context
@@ -53,10 +54,12 @@ Recent decisions affecting current work:
 - Phase 2: Keep pricing, transport, cost, and warning rules modular instead of hiding them inside one monolithic calculator.
 - Phase 3: Drive the dashboard from Zustand active scenario state so future forms only need to update state, not custom render paths.
 - Phase 3: Use compact KPI formatting and guarded chart hydration to keep the finance dashboard readable and clean in Next.js.
+- Phase 4: Keep form components simple and controlled from Zustand instead of adding heavier orchestration before the MVP really needs it.
+- Phase 4: Show schema validity near input pages so users can see invalid business states while editing.
 
 ### Pending Todos
 
-- Phase 4 planning and execution.
+- Phase 5 planning and execution.
 
 ### Blockers/Concerns
 
@@ -74,5 +77,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-14
-Stopped at: Phase 3 completed and dashboard is scenario-driven; next focus is input forms and realtime editing
+Stopped at: Phase 4 completed and all major input pages edit the active scenario; next focus is scenario persistence and management
 Resume file: None

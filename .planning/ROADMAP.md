@@ -13,7 +13,7 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 - [x] **Phase 1: Project Setup and Domain Skeleton** - Scaffold the runnable app, shell, domain types, defaults, validation, formatting, and repo docs.
 - [x] **Phase 2: Calculation Engine** - Implement all core formulas, warning/status logic, and minimum unit tests.
 - [x] **Phase 3: Dashboard UI** - Render calculated feasibility results from the default scenario.
-- [ ] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
+- [x] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
 - [ ] **Phase 5: Scenario Management and Persistence** - Save, duplicate, delete, compare, import, and export scenarios locally.
 - [ ] **Phase 6: Sensitivity and Break-Even** - Add sensitivity table, tornado chart, and break-even analysis.
 - [ ] **Phase 7: Report Export and MVP Polish** - Add report page, print/PDF/CSV/JSON export, and acceptance polish.
@@ -87,10 +87,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 04-01: Build reusable money, percent, ton, number, and mode selector controls.
-- [ ] 04-02: Build production, feedstock, quality, and pricing input pages.
-- [ ] 04-03: Build OPEX, CAPEX, transport, financing, tax, and working-capital input pages.
-- [ ] 04-04: Wire validation, state updates, and realtime recalculation across forms.
+- [x] 04-01: Build reusable money, percent, ton, number, and mode selector controls.
+- [x] 04-02: Build production, feedstock, quality, and pricing input pages.
+- [x] 04-03: Build OPEX, CAPEX, transport, financing, tax, and working-capital input pages.
+- [x] 04-04: Wire validation, state updates, and realtime recalculation across forms.
 
 ### Phase 5: Scenario Management and Persistence
 **Goal**: Make BIOMIX useful for multiple business cases without backend storage.
@@ -153,7 +153,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 1. Project Setup and Domain Skeleton | 4/4 | Complete | 2026-06-14 |
 | 2. Calculation Engine | 5/5 | Complete | 2026-06-14 |
 | 3. Dashboard UI | 3/3 | Complete | 2026-06-15 |
-| 4. Input Forms | 0/4 | Not started | - |
+| 4. Input Forms | 4/4 | Complete | 2026-06-15 |
 | 5. Scenario Management and Persistence | 0/3 | Not started | - |
 | 6. Sensitivity and Break-Even | 0/3 | Not started | - |
 | 7. Report Export and MVP Polish | 0/3 | Not started | - |

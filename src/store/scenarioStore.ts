@@ -10,6 +10,7 @@ interface ScenarioStore {
   activeScenarioId: string;
   presetLabels: readonly { id: string; label: string; notes: string }[];
   setActiveScenario: (id: string) => void;
+  updateActiveScenario: (updater: (scenario: Scenario) => Scenario) => void;
   updateScenarioMeta: (id: string, payload: Partial<Pick<Scenario, "name" | "description">>) => void;
 }
 
@@ -18,6 +19,17 @@ export const useScenarioStore = create<ScenarioStore>((set) => ({
   activeScenarioId: defaultScenario20TpdMix.id,
   presetLabels: scenarioPresets,
   setActiveScenario: (id) => set({ activeScenarioId: id }),
+  updateActiveScenario: (updater) =>
+    set((state) => ({
+      scenarios: state.scenarios.map((scenario) =>
+        scenario.id === state.activeScenarioId
+          ? {
+              ...updater(structuredClone(scenario)),
+              updatedAt: new Date().toISOString(),
+            }
+          : scenario,
+      ),
+    })),
   updateScenarioMeta: (id, payload) =>
     set((state) => ({
       scenarios: state.scenarios.map((scenario) =>
