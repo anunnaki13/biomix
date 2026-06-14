@@ -146,9 +146,9 @@
 | SCEN-02 | Phase 5 | Complete |
 | SCEN-03 | Phase 5 | Complete |
 | SCEN-04 | Phase 5 | Complete |
-| ANAL-01 | Phase 6 | Pending |
-| ANAL-02 | Phase 6 | Pending |
-| ANAL-03 | Phase 6 | Pending |
+| ANAL-01 | Phase 6 | Complete |
+| ANAL-02 | Phase 6 | Complete |
+| ANAL-03 | Phase 6 | Complete |
 | REPT-01 | Phase 7 | Pending |
 | REPT-02 | Phase 7 | Pending |
 | REPT-03 | Phase 7 | Pending |
@@ -161,4 +161,4 @@
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-15 after Phase 5 completion*
+*Last updated: 2026-06-15 after Phase 6 completion*

@@ -15,7 +15,7 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 - [x] **Phase 3: Dashboard UI** - Render calculated feasibility results from the default scenario.
 - [x] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
 - [x] **Phase 5: Scenario Management and Persistence** - Save, duplicate, delete, compare, import, and export scenarios locally.
-- [ ] **Phase 6: Sensitivity and Break-Even** - Add sensitivity table, tornado chart, and break-even analysis.
+- [x] **Phase 6: Sensitivity and Break-Even** - Add sensitivity table, tornado chart, and break-even analysis.
 - [ ] **Phase 7: Report Export and MVP Polish** - Add report page, print/PDF/CSV/JSON export, and acceptance polish.
 
 ## Phase Details
@@ -122,9 +122,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: Implement sensitivity runner and result table.
-- [ ] 06-02: Implement tornado chart data and visualization.
-- [ ] 06-03: Build break-even analysis UI and connect to engine outputs.
+- [x] 06-01: Implement sensitivity runner and result table.
+- [x] 06-02: Implement tornado chart data and visualization.
+- [x] 06-03: Build break-even analysis UI and connect to engine outputs.
 
 ### Phase 7: Report Export and MVP Polish
 **Goal**: Let users produce shareable feasibility outputs and meet the blueprint MVP acceptance criteria.
@@ -155,7 +155,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. Dashboard UI | 3/3 | Complete | 2026-06-15 |
 | 4. Input Forms | 4/4 | Complete | 2026-06-15 |
 | 5. Scenario Management and Persistence | 3/3 | Complete | 2026-06-15 |
-| 6. Sensitivity and Break-Even | 0/3 | Not started | - |
+| 6. Sensitivity and Break-Even | 3/3 | Complete | 2026-06-15 |
 | 7. Report Export and MVP Polish | 0/3 | Not started | - |
 
 ## Coverage

@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** Phase 6 - Sensitivity and Break-Even
+**Current focus:** Phase 7 - Report Export and MVP Polish
 
 ## Current Position
 
-Phase: 6 of 7 (Sensitivity and Break-Even)
+Phase: 7 of 7 (Report Export and MVP Polish)
 Plan: 0 of 3 in current phase
-Status: Phase 5 complete
-Last activity: 2026-06-15 - Completed local-first scenario CRUD, persistence, JSON portability, and compare table
+Status: Phase 6 complete
+Last activity: 2026-06-15 - Completed live sensitivity runner, tornado-style analysis, and break-even route
 
-Progress: [#######---] 76%
+Progress: [#########-] 88%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 19
+- Total plans completed: 22
 - Average duration: 11 min
-- Total execution time: 3.2 hours
+- Total execution time: 3.6 hours
 
 **By Phase:**
 
@@ -32,9 +32,10 @@ Progress: [#######---] 76%
 | 3 | 3 | 30 min | 10 min |
 | 4 | 4 | 36 min | 9 min |
 | 5 | 3 | 24 min | 8 min |
+| 6 | 3 | 23 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 9m, 9m, 8m, 8m, 7m
+- Last 5 plans: 8m, 8m, 7m, 7m, 7m
 - Trend: Improving
 
 ## Accumulated Context
@@ -59,10 +60,12 @@ Recent decisions affecting current work:
 - Phase 4: Show schema validity near input pages so users can see invalid business states while editing.
 - Phase 5: Persist only essential scenario state so localStorage stays transparent and easier to evolve.
 - Phase 5: Run imported JSON back through the schema before accepting it into the store.
+- Phase 6: Sensitivity should be expressed as explicit scenario mutations so the analysis stays auditable.
+- Phase 6: Break-even views should mix raw thresholds with interpretive context so the numbers are easier to act on.
 
 ### Pending Todos
 
-- Phase 6 planning and execution.
+- Phase 7 planning and execution.
 
 ### Blockers/Concerns
 
@@ -80,5 +83,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-14
-Stopped at: Phase 5 completed and scenario persistence/compare is live; next focus is sensitivity and break-even depth
+Stopped at: Phase 6 completed and analysis routes are live; next focus is reports/export and final MVP polish
 Resume file: None
