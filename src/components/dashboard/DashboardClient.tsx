@@ -10,10 +10,12 @@ import { RevenueOpexChart } from "@/components/dashboard/RevenueOpexChart";
 import { SensitivitySnapshot } from "@/components/dashboard/SensitivitySnapshot";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
 import { WarningPanel } from "@/components/dashboard/WarningPanel";
+import { ScenarioReadinessPanel } from "@/components/workflow/ScenarioReadinessPanel";
 import { calculateFeasibility } from "@/lib/calculations";
 import { formatIDR, formatIDRCompact } from "@/lib/formatters/currency";
 import { formatNumber } from "@/lib/formatters/number";
 import { formatPercent } from "@/lib/formatters/percentage";
+import { getScenarioReadiness } from "@/lib/workflow/scenarioReadiness";
 import { useScenarioStore } from "@/store/scenarioStore";
 import type { Scenario } from "@/types/biomass";
 
@@ -31,6 +33,7 @@ export function DashboardClient() {
     scenarios.find((item) => item.id === activeScenarioId) ?? scenarios[0];
 
   const result = useMemo(() => calculateFeasibility(scenario), [scenario]);
+  const readiness = useMemo(() => getScenarioReadiness(scenario), [scenario]);
   const warningLines = result.warnings.map(
     (warning) => `${warning.title}: ${warning.message}`,
   );
@@ -132,6 +135,8 @@ export function DashboardClient() {
             />
           </div>
         </section>
+
+        <ScenarioReadinessPanel readiness={readiness} />
 
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <KpiCard

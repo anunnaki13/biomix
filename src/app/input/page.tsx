@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { getScenarioReadiness } from "@/lib/workflow/scenarioReadiness";
+import { useActiveScenario } from "@/store/useActiveScenario";
 import {
   ArrowRight,
   Banknote,
@@ -63,6 +67,9 @@ const steps = [
 ];
 
 export default function InputIndexPage() {
+  const { activeScenario } = useActiveScenario();
+  const readiness = getScenarioReadiness(activeScenario);
+
   return (
     <section className="space-y-6">
       <div className="panel rounded-2xl p-6">
@@ -78,31 +85,80 @@ export default function InputIndexPage() {
           sekarang punya ruang untuk tambah item baru, jadi Anda tidak terbatasi
           oleh field bawaan.
         </p>
+
+        <div className="mt-6 grid gap-3 md:grid-cols-3">
+          <article className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
+            <p className="text-sm text-text-secondary">Progress input</p>
+            <p className="mt-2 font-display text-2xl text-text-primary">
+              {readiness.completedSections}/{readiness.totalSections}
+            </p>
+          </article>
+          <article className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
+            <p className="text-sm text-text-secondary">Status readiness</p>
+            <p className="mt-2 font-display text-2xl text-text-primary">
+              {readiness.statusLabel === "READY_FOR_REVIEW"
+                ? "Siap review"
+                : readiness.statusLabel === "NEEDS_VALIDATION"
+                  ? "Perlu validasi"
+                  : "Perlu input"}
+            </p>
+          </article>
+          <article className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
+            <p className="text-sm text-text-secondary">Langkah berikutnya</p>
+            <p className="mt-2 text-sm leading-7 text-text-primary">
+              {readiness.nextSection
+                ? `Lengkapi ${readiness.nextSection.label}`
+                : "Scenario aktif sudah siap dibawa ke analysis atau report."}
+            </p>
+          </article>
+        </div>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        {steps.map(({ href, title, description, icon: Icon }) => (
-          <Link
-            key={href}
-            href={href}
-            className="panel flex items-start justify-between gap-4 rounded-2xl p-5 transition hover:border-white/20 hover:bg-white/8"
-          >
-            <div className="flex items-start gap-4">
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-accent-cyan">
-                <Icon className="h-5 w-5" />
+        {steps.map(({ href, title, description, icon: Icon }) => {
+          const section = readiness.sections.find((item) => item.href === href);
+
+          return (
+            <Link
+              key={href}
+              href={href}
+              className="panel flex items-start justify-between gap-4 rounded-2xl p-5 transition hover:border-white/20 hover:bg-white/8"
+            >
+              <div className="flex items-start gap-4">
+                <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-accent-cyan">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="font-display text-xl font-semibold text-text-primary">
+                      {title}
+                    </h2>
+                    {section ? (
+                      <span
+                        className={`rounded-full px-2.5 py-1 text-[11px] uppercase tracking-[0.16em] ${
+                          section.complete
+                            ? "bg-accent-green/10 text-accent-green"
+                            : "bg-accent-amber/10 text-accent-amber"
+                        }`}
+                      >
+                        {section.complete ? "Complete" : "Perlu isi"}
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-2 max-w-xl text-sm leading-7 text-text-secondary">
+                    {description}
+                  </p>
+                  {section ? (
+                    <p className="mt-2 text-sm text-text-secondary">
+                      {section.detail}
+                    </p>
+                  ) : null}
+                </div>
               </div>
-              <div>
-                <h2 className="font-display text-xl font-semibold text-text-primary">
-                  {title}
-                </h2>
-                <p className="mt-2 max-w-xl text-sm leading-7 text-text-secondary">
-                  {description}
-                </p>
-              </div>
-            </div>
-            <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-text-secondary" />
-          </Link>
-        ))}
+              <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-text-secondary" />
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
