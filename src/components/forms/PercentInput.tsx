@@ -6,6 +6,7 @@ interface PercentInputProps {
   onChange: (value: number) => void;
   hint?: string;
   step?: number;
+  hideLabel?: boolean;
 }
 
 export function PercentInput(props: PercentInputProps) {

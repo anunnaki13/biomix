@@ -7,6 +7,7 @@ interface TextInputProps {
   onChange: (value: string) => void;
   hint?: string;
   placeholder?: string;
+  hideLabel?: boolean;
 }
 
 export function TextInput({
@@ -15,9 +16,10 @@ export function TextInput({
   onChange,
   hint,
   placeholder,
+  hideLabel,
 }: TextInputProps) {
   return (
-    <FieldShell label={label} hint={hint}>
+    <FieldShell label={label} hint={hint} hideLabel={hideLabel}>
       <input
         className={inputClassName}
         type="text"

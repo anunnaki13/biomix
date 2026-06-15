@@ -6,6 +6,7 @@ interface MoneyInputProps {
   onChange: (value: number) => void;
   hint?: string;
   step?: number;
+  hideLabel?: boolean;
 }
 
 export function MoneyInput(props: MoneyInputProps) {

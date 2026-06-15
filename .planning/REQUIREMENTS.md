@@ -176,9 +176,9 @@
 | FLOW-01 | Phase 8 | Complete |
 | FLOW-02 | Phase 8 | Complete |
 | FLOW-03 | Phase 8 | Complete |
-| UX-INPUT-01 | Phase 9 | Pending |
-| UX-INPUT-02 | Phase 9 | Pending |
-| UX-INPUT-03 | Phase 9 | Pending |
+| UX-INPUT-01 | Phase 9 | Complete |
+| UX-INPUT-02 | Phase 9 | Complete |
+| UX-INPUT-03 | Phase 9 | Complete |
 | UX-REPORT-01 | Phase 10 | Pending |
 | UX-REPORT-02 | Phase 10 | Pending |
 | UX-REPORT-03 | Phase 10 | Pending |

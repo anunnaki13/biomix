@@ -45,124 +45,159 @@ export function CapexItemTable() {
         </button>
       </div>
 
-      {activeScenario.capex.items.map((item) => (
-        <div
-          key={item.id}
-          className="rounded-2xl border border-white/10 bg-white/5 p-4"
-        >
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-6">
-            <TextInput
-              label="Item"
-              value={item.name}
-              onChange={(value) =>
-                updateActiveScenario((scenario) => ({
-                  ...scenario,
-                  capex: {
-                    ...scenario.capex,
-                    items: scenario.capex.items.map((capexItem) =>
-                      capexItem.id === item.id
-                        ? { ...capexItem, name: value }
-                        : capexItem,
-                    ),
-                  },
-                }))
-              }
-            />
-            <TextInput
-              label="Kategori"
-              value={item.category}
-              onChange={(value) =>
-                updateActiveScenario((scenario) => ({
-                  ...scenario,
-                  capex: {
-                    ...scenario.capex,
-                    items: scenario.capex.items.map((capexItem) =>
-                      capexItem.id === item.id
-                        ? { ...capexItem, category: value }
-                        : capexItem,
-                    ),
-                  },
-                }))
-              }
-            />
-            <NumberInput
-              label="Qty"
-              value={item.qty}
-              min={0}
-              step={1}
-              onChange={(value) =>
-                updateActiveScenario((scenario) => ({
-                  ...scenario,
-                  capex: {
-                    ...scenario.capex,
-                    items: scenario.capex.items.map((capexItem) =>
-                      capexItem.id === item.id
-                        ? { ...capexItem, qty: value }
-                        : capexItem,
-                    ),
-                  },
-                }))
-              }
-            />
-            <MoneyInput
-              label="Unit price"
-              value={item.unitPrice}
-              onChange={(value) =>
-                updateActiveScenario((scenario) => ({
-                  ...scenario,
-                  capex: {
-                    ...scenario.capex,
-                    items: scenario.capex.items.map((capexItem) =>
-                      capexItem.id === item.id
-                        ? { ...capexItem, unitPrice: value }
-                        : capexItem,
-                    ),
-                  },
-                }))
-              }
-            />
-            <NumberInput
-              label="Useful life"
-              value={item.usefulLifeYears ?? 0}
-              min={0}
-              step={1}
-              onChange={(value) =>
-                updateActiveScenario((scenario) => ({
-                  ...scenario,
-                  capex: {
-                    ...scenario.capex,
-                    items: scenario.capex.items.map((capexItem) =>
-                      capexItem.id === item.id
-                        ? { ...capexItem, usefulLifeYears: value }
-                        : capexItem,
-                    ),
-                  },
-                }))
-              }
-            />
-            <div className="flex items-end">
-              <button
-                type="button"
-                onClick={() =>
-                  updateActiveScenario((scenario) => ({
-                    ...scenario,
-                    capex: {
-                      ...scenario.capex,
-                      items: scenario.capex.items.filter(
-                        (capexItem) => capexItem.id !== item.id,
-                      ),
-                    },
-                  }))
-                }
-                className="inline-flex items-center gap-2 rounded-xl border border-danger/30 bg-danger/10 px-4 py-3 text-sm text-danger"
+      <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5">
+        <table className="min-w-[1120px] w-full text-sm">
+          <thead className="border-b border-white/10 bg-black/10 text-left text-text-secondary">
+            <tr>
+              <th className="px-4 py-3 font-medium">Item</th>
+              <th className="px-4 py-3 font-medium">Kategori</th>
+              <th className="px-4 py-3 font-medium">Qty</th>
+              <th className="px-4 py-3 font-medium">Unit price</th>
+              <th className="px-4 py-3 font-medium">Subtotal</th>
+              <th className="px-4 py-3 font-medium">Useful life</th>
+              <th className="px-4 py-3 font-medium">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activeScenario.capex.items.map((item) => (
+              <tr
+                key={item.id}
+                className="border-b border-white/6 align-top last:border-b-0"
               >
-                <Trash2 className="h-4 w-4" />
-                Hapus
-              </button>
-            </div>
-          </div>
-        </div>
-      ))}
+                <td className="px-4 py-4">
+                  <TextInput
+                    label="Item"
+                    hideLabel
+                    value={item.name}
+                    onChange={(value) =>
+                      updateActiveScenario((scenario) => ({
+                        ...scenario,
+                        capex: {
+                          ...scenario.capex,
+                          items: scenario.capex.items.map((capexItem) =>
+                            capexItem.id === item.id
+                              ? { ...capexItem, name: value }
+                              : capexItem,
+                          ),
+                        },
+                      }))
+                    }
+                  />
+                </td>
+                <td className="px-4 py-4">
+                  <TextInput
+                    label="Kategori"
+                    hideLabel
+                    value={item.category}
+                    onChange={(value) =>
+                      updateActiveScenario((scenario) => ({
+                        ...scenario,
+                        capex: {
+                          ...scenario.capex,
+                          items: scenario.capex.items.map((capexItem) =>
+                            capexItem.id === item.id
+                              ? { ...capexItem, category: value }
+                              : capexItem,
+                          ),
+                        },
+                      }))
+                    }
+                  />
+                </td>
+                <td className="px-4 py-4">
+                  <NumberInput
+                    label="Qty"
+                    hideLabel
+                    value={item.qty}
+                    min={0}
+                    step={1}
+                    onChange={(value) =>
+                      updateActiveScenario((scenario) => ({
+                        ...scenario,
+                        capex: {
+                          ...scenario.capex,
+                          items: scenario.capex.items.map((capexItem) =>
+                            capexItem.id === item.id
+                              ? { ...capexItem, qty: value }
+                              : capexItem,
+                          ),
+                        },
+                      }))
+                    }
+                  />
+                </td>
+                <td className="px-4 py-4">
+                  <MoneyInput
+                    label="Unit price"
+                    hideLabel
+                    value={item.unitPrice}
+                    onChange={(value) =>
+                      updateActiveScenario((scenario) => ({
+                        ...scenario,
+                        capex: {
+                          ...scenario.capex,
+                          items: scenario.capex.items.map((capexItem) =>
+                            capexItem.id === item.id
+                              ? { ...capexItem, unitPrice: value }
+                              : capexItem,
+                          ),
+                        },
+                      }))
+                    }
+                  />
+                </td>
+                <td className="px-4 py-4">
+                  <div className="rounded-xl border border-white/10 bg-black/10 px-3 py-3 text-sm text-text-primary">
+                    Rp {(item.qty * item.unitPrice).toLocaleString("id-ID")}
+                  </div>
+                </td>
+                <td className="px-4 py-4">
+                  <NumberInput
+                    label="Useful life"
+                    hideLabel
+                    value={item.usefulLifeYears ?? 0}
+                    min={0}
+                    step={1}
+                    onChange={(value) =>
+                      updateActiveScenario((scenario) => ({
+                        ...scenario,
+                        capex: {
+                          ...scenario.capex,
+                          items: scenario.capex.items.map((capexItem) =>
+                            capexItem.id === item.id
+                              ? { ...capexItem, usefulLifeYears: value }
+                              : capexItem,
+                          ),
+                        },
+                      }))
+                    }
+                  />
+                </td>
+                <td className="px-4 py-4">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      updateActiveScenario((scenario) => ({
+                        ...scenario,
+                        capex: {
+                          ...scenario.capex,
+                          items: scenario.capex.items.filter(
+                            (capexItem) => capexItem.id !== item.id,
+                          ),
+                        },
+                      }))
+                    }
+                    className="inline-flex items-center gap-2 rounded-xl border border-danger/30 bg-danger/10 px-3 py-3 text-sm text-danger"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    Hapus
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

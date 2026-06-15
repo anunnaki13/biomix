@@ -9,6 +9,7 @@ interface NumberInputProps {
   min?: number;
   max?: number;
   step?: number;
+  hideLabel?: boolean;
 }
 
 export function NumberInput({
@@ -19,9 +20,10 @@ export function NumberInput({
   min,
   max,
   step = 0.01,
+  hideLabel,
 }: NumberInputProps) {
   return (
-    <FieldShell label={label} hint={hint}>
+    <FieldShell label={label} hint={hint} hideLabel={hideLabel}>
       <input
         className={inputClassName}
         type="number"

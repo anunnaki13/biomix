@@ -5,11 +5,18 @@ import { FormSection } from "@/components/forms/FormSection";
 import { MoneyInput } from "@/components/forms/MoneyInput";
 import { OpexCustomItemTable } from "@/components/forms/OpexCustomItemTable";
 import { ScenarioValidationCard } from "@/components/forms/ScenarioValidationCard";
+import { calculateFeasibility } from "@/lib/calculations";
+import { formatIDRCompact } from "@/lib/formatters/currency";
 import { useActiveScenario } from "@/store/useActiveScenario";
 
 export default function OpexInputPage() {
   const { activeScenario, updateActiveScenario } = useActiveScenario();
   const opex = activeScenario.opex;
+  const result = calculateFeasibility(activeScenario);
+  const customMonthly = opex.customItems.reduce(
+    (sum, item) => sum + item.amountMonthly,
+    0,
+  );
 
   return (
     <section className="space-y-6">
@@ -25,6 +32,24 @@ export default function OpexInputPage() {
         title="Utility, labor, dan overhead"
         description="Semua angka ini masuk ke OPEX non-feedstock bulanan."
       >
+        <div className="mb-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <SummaryCard
+            label="OPEX non-feedstock / bulan"
+            value={formatIDRCompact(result.cost.nonFeedstockOpexPerMonth)}
+          />
+          <SummaryCard
+            label="Total OPEX / bulan"
+            value={formatIDRCompact(result.cost.totalOpexPerMonth)}
+          />
+          <SummaryCard
+            label="Item OPEX tambahan"
+            value={`${opex.customItems.length} item`}
+          />
+          <SummaryCard
+            label="Custom OPEX / bulan"
+            value={formatIDRCompact(customMonthly)}
+          />
+        </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <MoneyInput
             label="Electricity / day"
@@ -146,5 +171,14 @@ export default function OpexInputPage() {
         <OpexCustomItemTable />
       </FormSection>
     </section>
+  );
+}
+
+function SummaryCard({ label, value }: { label: string; value: string }) {
+  return (
+    <article className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
+      <p className="text-sm text-text-secondary">{label}</p>
+      <p className="mt-2 font-display text-xl text-text-primary">{value}</p>
+    </article>
   );
 }
