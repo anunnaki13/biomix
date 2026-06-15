@@ -48,3 +48,28 @@ a {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(16px);
 }
+
+@media print {
+  :root {
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --panel: #ffffff;
+    --panel-border: rgba(17, 24, 39, 0.12);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .panel {
+    background: #ffffff !important;
+    border-color: rgba(17, 24, 39, 0.12) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+}

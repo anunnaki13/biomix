@@ -179,9 +179,9 @@
 | UX-INPUT-01 | Phase 9 | Complete |
 | UX-INPUT-02 | Phase 9 | Complete |
 | UX-INPUT-03 | Phase 9 | Complete |
-| UX-REPORT-01 | Phase 10 | Pending |
-| UX-REPORT-02 | Phase 10 | Pending |
-| UX-REPORT-03 | Phase 10 | Pending |
+| UX-REPORT-01 | Phase 10 | Complete |
+| UX-REPORT-02 | Phase 10 | Complete |
+| UX-REPORT-03 | Phase 10 | Complete |
 
 **Coverage:**
 - v1 requirements: 56 total

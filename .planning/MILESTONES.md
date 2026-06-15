@@ -2,6 +2,29 @@
 
 [Entries in reverse chronological order - newest first]
 
+## v1.1 Usability Polish (Shipped: 2026-06-15)
+
+**Delivered:** A more guided BIOMIX workflow with scenario readiness signals, denser input review tables, and cleaner report/print handoff.
+
+**Phases completed:** 8-10 (9 plans total)
+
+**Key accomplishments:**
+- Added scenario readiness, completion tracking, and clearer next-step guidance from dashboard and Input Center
+- Improved feedstock, CAPEX, and OPEX editing into denser review-friendly tables with inline summaries
+- Polished report presentation for print/PDF, added TXT export, and tightened analysis-to-report navigation
+
+**Stats:**
+- 20 files modified
+- 7,436 lines of TypeScript/TSX in the current app surface
+- 3 phases, 9 plans, usability milestone completed end-to-end
+- 1 day from milestone start to ship
+
+**Git range:** `2289b2c` → `HEAD`
+
+**What's next:** Decide between shipping this polish milestone upstream, opening a v1.2 operations/reporting milestone, or moving to backend planning for v2
+
+---
+
 ## v1.0 MVP (Shipped: 2026-06-15)
 
 **Delivered:** A complete local-first BIOMIX feasibility application with tested formulas, editable assumptions, scenario persistence, analysis views, and report export.

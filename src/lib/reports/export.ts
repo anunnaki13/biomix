@@ -153,6 +153,40 @@ export function serializeReportJson(snapshot: ReportSnapshot) {
   return JSON.stringify(snapshot, null, 2);
 }
 
+export function serializeReportText(snapshot: ReportSnapshot) {
+  const lines = [
+    `BIOMIX Report - ${snapshot.scenario.name}`,
+    "",
+    `Generated at: ${snapshot.generatedAt}`,
+    `Status: ${snapshot.summary.status}`,
+    `Revenue / month: ${formatIDR(snapshot.summary.revenuePerMonth)}`,
+    `Net profit / month: ${formatIDR(snapshot.summary.netProfitPerMonth)}`,
+    `HPP / ton: ${formatIDR(snapshot.summary.hppPerTon)}`,
+    `Break-even price / ton: ${formatIDR(snapshot.summary.breakEvenPricePerTon)}`,
+    `Max feedstock / kg: ${formatIDR(snapshot.summary.maxFeedstockPricePerKg)}`,
+    "",
+    "Assumptions:",
+    `- Output target: ${formatNumber(snapshot.assumptions.targetOutputTonPerDay, 2)} ton/day`,
+    `- Operating days: ${formatNumber(snapshot.assumptions.operatingDaysPerMonth, 0)} days/month`,
+    `- Operating hours: ${formatNumber(snapshot.assumptions.operatingHoursPerDay, 0)} hours/day`,
+    `- Yield: ${formatPercent(snapshot.assumptions.yieldPct, 1)}`,
+    `- Pricing mode: ${snapshot.assumptions.pricingMode}`,
+    `- Transport mode: ${snapshot.assumptions.transportMode}`,
+    "",
+    "Warnings:",
+    ...(snapshot.warnings.length > 0
+      ? snapshot.warnings.map(
+          (item) => `- [${item.level.toUpperCase()}] ${item.title}: ${item.message}`,
+        )
+      : ["- No active warning"]),
+    "",
+    "Disclaimer:",
+    ...snapshot.disclaimer.map((item) => `- ${item}`),
+  ];
+
+  return lines.join("\n");
+}
+
 export function serializeReportCsv(snapshot: ReportSnapshot) {
   const rows = [
     ["section", "item", "value", "notes"],

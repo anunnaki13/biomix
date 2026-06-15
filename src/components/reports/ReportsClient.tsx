@@ -1,6 +1,7 @@
 "use client";
 
-import { Download, FileJson2, Printer } from "lucide-react";
+import Link from "next/link";
+import { Download, FileJson2, FileText, FlaskConical, Gauge, Printer } from "lucide-react";
 import { useMemo } from "react";
 
 import { FormPageHeader } from "@/components/forms/FormPageHeader";
@@ -11,6 +12,7 @@ import {
   buildReportSnapshot,
   serializeReportCsv,
   serializeReportJson,
+  serializeReportText,
 } from "@/lib/reports/export";
 import { formatIDR, formatIDRCompact } from "@/lib/formatters/currency";
 import { formatNumber } from "@/lib/formatters/number";
@@ -35,7 +37,7 @@ export function ReportsClient() {
   );
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 print:space-y-4">
       <FormPageHeader
         eyebrow="Reports"
         title="Investor and offtaker report"
@@ -48,7 +50,7 @@ export function ReportsClient() {
         title="Keluarkan report"
         description="Gunakan Print untuk simpan sebagai PDF dari browser. CSV dan JSON akan membawa snapshot scenario aktif beserta hasil perhitungannya."
       >
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 print:hidden">
           <button
             type="button"
             onClick={() => window.print()}
@@ -85,12 +87,59 @@ export function ReportsClient() {
             <FileJson2 className="h-4 w-4" />
             Export JSON
           </button>
+          <button
+            type="button"
+            onClick={() =>
+              downloadTextFile(
+                `${activeScenario.name.replaceAll(/\s+/g, "-").toLowerCase()}-review.txt`,
+                serializeReportText(snapshot),
+                "text/plain;charset=utf-8",
+              )
+            }
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-text-primary"
+          >
+            <FileText className="h-4 w-4" />
+            Export TXT
+          </button>
+        </div>
+
+        <div className="mt-4 grid gap-3 md:grid-cols-3 print:hidden">
+          <Link
+            href="/analysis/sensitivity"
+            className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 transition hover:border-white/20"
+          >
+            <div className="flex items-center gap-2 text-accent-cyan">
+              <FlaskConical className="h-4 w-4" />
+              <span className="text-sm font-medium">Review sensitivity</span>
+            </div>
+            <p className="mt-2 text-sm leading-6 text-text-secondary">
+              Cek driver profit paling sensitif sebelum share report keluar.
+            </p>
+          </Link>
+          <Link
+            href="/analysis/breakeven"
+            className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 transition hover:border-white/20"
+          >
+            <div className="flex items-center gap-2 text-accent-cyan">
+              <Gauge className="h-4 w-4" />
+              <span className="text-sm font-medium">Review break-even</span>
+            </div>
+            <p className="mt-2 text-sm leading-6 text-text-secondary">
+              Pastikan threshold harga, GCV, dan volume masih masuk akal.
+            </p>
+          </Link>
+          <article className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
+            <p className="text-sm font-medium text-text-primary">Print note</p>
+            <p className="mt-2 text-sm leading-6 text-text-secondary">
+              Saat diprint, sidebar dan topbar otomatis disembunyikan agar hasilnya lebih seperti dokumen review.
+            </p>
+          </article>
         </div>
       </FormSection>
 
-      <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
+      <section className="grid gap-6 print:block xl:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
-          <section className="panel rounded-2xl p-6">
+          <section className="panel rounded-2xl p-6 print:rounded-none print:border-none print:px-0 print:py-0">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="space-y-3">
                 <p className="text-xs uppercase tracking-[0.24em] text-accent-cyan">
@@ -104,6 +153,17 @@ export function ReportsClient() {
                 </p>
               </div>
               <StatusBadge status={snapshot.summary.status as "LAYAK" | "LAYAK_DENGAN_CATATAN" | "TIDAK_LAYAK"} />
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-black/10 px-4 py-4 print:rounded-none print:border print:bg-transparent">
+              <p className="text-sm font-medium text-text-primary">Executive summary</p>
+              <p className="mt-2 text-sm leading-7 text-text-secondary">
+                {snapshot.summary.status === "LAYAK"
+                  ? "Scenario ini sudah layak dibawa ke pembahasan komersial dan operasional lanjutan, dengan catatan warning tetap dibaca."
+                  : snapshot.summary.status === "LAYAK_DENGAN_CATATAN"
+                    ? "Scenario ini masih bisa diteruskan, tetapi perlu mitigasi di area warning, break-even, atau kualitas sebelum keputusan final."
+                    : "Scenario ini belum cukup kuat untuk dibawa sebagai proposal final tanpa perbaikan asumsi inti."}
+              </p>
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -289,7 +349,7 @@ export function ReportsClient() {
           </FormSection>
         </div>
 
-        <div className="space-y-6 xl:sticky xl:top-4 xl:self-start">
+        <div className="space-y-6 print:mt-6 xl:sticky xl:top-4 xl:self-start">
           <FormSection
             eyebrow="Break-even"
             title="Threshold cepat"

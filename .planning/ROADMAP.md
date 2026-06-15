@@ -19,7 +19,7 @@ Milestone v1.0 shipped the complete local-first BIOMIX feasibility MVP. Mileston
 - [x] **Phase 7: Report Export and MVP Polish** - Add report page, print/PDF/CSV/JSON export, and acceptance polish.
 - [x] **Phase 8: Guided Workflow and Completion Signals** - Add stronger start points, progress cues, and readiness summaries across the app.
 - [x] **Phase 9: Input Ergonomics and Review Density** - Improve CAPEX/OPEX/feedstock editing and add section-level summaries.
-- [ ] **Phase 10: Report Presentation and Review Polish** - Refine print/report layout, review transitions, and business handoff clarity.
+- [x] **Phase 10: Report Presentation and Review Polish** - Refine print/report layout, review transitions, and business handoff clarity.
 
 ## Phase Details
 
@@ -190,9 +190,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 10-01: Refine print/report layout and reduce dashboard-only visual noise in print context.
-- [ ] 10-02: Improve exported review artifacts and report data presentation.
-- [ ] 10-03: Polish transitions between dashboard, analysis, and report routes.
+- [x] 10-01: Refine print/report layout and reduce dashboard-only visual noise in print context.
+- [x] 10-02: Improve exported review artifacts and report data presentation.
+- [x] 10-03: Polish transitions between dashboard, analysis, and report routes.
 
 ## Progress
 
@@ -210,7 +210,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 7. Report Export and MVP Polish | 3/3 | Complete | 2026-06-15 |
 | 8. Guided Workflow and Completion Signals | 3/3 | Complete | 2026-06-15 |
 | 9. Input Ergonomics and Review Density | 3/3 | Complete | 2026-06-15 |
-| 10. Report Presentation and Review Polish | 0/3 | Not started | - |
+| 10. Report Presentation and Review Polish | 3/3 | Complete | 2026-06-15 |
 
 ## Coverage
 

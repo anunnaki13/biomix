@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
+import { ArrowRight, FileSpreadsheet } from "lucide-react";
 
 import { BreakEvenCards } from "@/components/analysis/BreakEvenCards";
 import { FormPageHeader } from "@/components/forms/FormPageHeader";
@@ -68,6 +70,21 @@ export default function BreakEvenPage() {
             </p>
           </article>
         </div>
+      </FormSection>
+
+      <FormSection
+        eyebrow="Next Step"
+        title="Masukkan ke report"
+        description="Jika headroom masih masuk akal, lanjutkan ke report untuk menyusun bahan review investor atau offtaker."
+      >
+        <Link
+          href="/reports"
+          className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-text-primary transition hover:border-white/20"
+        >
+          <FileSpreadsheet className="h-4 w-4" />
+          Buka report scenario aktif
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </FormSection>
     </section>
   );

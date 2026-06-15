@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
+import { ArrowRight, FileSpreadsheet } from "lucide-react";
 
 import { SensitivityTable } from "@/components/analysis/SensitivityTable";
 import { TornadoChart } from "@/components/analysis/TornadoChart";
@@ -43,6 +45,21 @@ export default function SensitivityPage() {
         description="Bandingkan profit baseline melawan hasil setelah delta untuk setiap variabel."
       >
         <SensitivityTable rows={rows} />
+      </FormSection>
+
+      <FormSection
+        eyebrow="Next Step"
+        title="Bawa hasil ke report"
+        description="Setelah driver impact terlihat, bukalah report untuk menyiapkan versi yang lebih siap dibagikan."
+      >
+        <Link
+          href="/reports"
+          className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-text-primary transition hover:border-white/20"
+        >
+          <FileSpreadsheet className="h-4 w-4" />
+          Buka report scenario aktif
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </FormSection>
     </section>
   );
