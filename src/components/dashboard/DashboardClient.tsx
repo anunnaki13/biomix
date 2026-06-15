@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
+import { ArrowRight, FileSpreadsheet, FlaskConical, FolderInput, Layers3 } from "lucide-react";
 
 import { CostBreakdownChart } from "@/components/dashboard/CostBreakdownChart";
 import { KpiCard } from "@/components/dashboard/KpiCard";
@@ -107,6 +109,27 @@ export function DashboardClient() {
               </p>
             </div>
             <StatusBadge status={result.status.overallStatus} />
+          </div>
+
+          <div className="mt-6 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)]">
+            <QuickActionCard
+              href="/input"
+              icon={FolderInput}
+              title="Mulai isi asumsi"
+              description="Masuk ke Input Center untuk isi data berurutan dari produksi sampai financing."
+            />
+            <QuickActionCard
+              href="/scenario"
+              icon={Layers3}
+              title="Kelola scenario"
+              description="Duplikasi base case, rename, lalu bandingkan hasil beberapa skenario sekaligus."
+            />
+            <QuickActionCard
+              href="/reports"
+              icon={FileSpreadsheet}
+              title="Keluarkan report"
+              description="Buka halaman report untuk print PDF atau export CSV dan JSON dari scenario aktif."
+            />
           </div>
         </section>
 
@@ -251,6 +274,30 @@ export function DashboardClient() {
         </section>
 
         <SensitivitySnapshot items={sensitivityItems} />
+
+        <section className="panel rounded-2xl p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="space-y-2">
+              <p className="text-xs uppercase tracking-[0.24em] text-accent-cyan">
+                Next Step
+              </p>
+              <h2 className="font-display text-2xl font-semibold text-text-primary">
+                Setelah angka terlihat, lanjut ke analisis atau report
+              </h2>
+              <p className="max-w-3xl text-sm leading-7 text-text-secondary">
+                Sensitivity membantu melihat driver profit paling sensitif. Report cocok untuk dibawa ke review internal, investor, dan negosiasi offtaker.
+              </p>
+            </div>
+            <Link
+              href="/analysis/sensitivity"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-text-primary transition hover:border-white/20"
+            >
+              <FlaskConical className="h-4 w-4" />
+              Buka sensitivity
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
       </div>
 
       <div className="xl:sticky xl:top-4 xl:self-start">
@@ -262,5 +309,35 @@ export function DashboardClient() {
         />
       </div>
     </div>
+  );
+}
+
+function QuickActionCard({
+  href,
+  icon: Icon,
+  title,
+  description,
+}: {
+  href: string;
+  icon: typeof FolderInput;
+  title: string;
+  description: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/8"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="rounded-xl border border-white/10 bg-black/10 p-3 text-accent-cyan">
+          <Icon className="h-4 w-4" />
+        </div>
+        <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-text-secondary" />
+      </div>
+      <h3 className="mt-4 font-display text-lg font-semibold text-text-primary">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm leading-7 text-text-secondary">{description}</p>
+    </Link>
   );
 }

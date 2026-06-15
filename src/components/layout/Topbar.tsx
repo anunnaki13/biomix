@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
-import { ArrowRightLeft, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowRightLeft, FileSpreadsheet, FolderInput, ShieldCheck } from "lucide-react";
 
 import { calculateFeasibility } from "@/lib/calculations";
 import { formatIDRCompact } from "@/lib/formatters/currency";
@@ -35,7 +36,7 @@ export function Topbar() {
 
         <div className="flex flex-wrap items-center gap-3">
           <div className="rounded-full border border-accent-green/25 bg-accent-green/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-accent-green">
-            Phase 3 Dashboard
+            MVP Complete
           </div>
           <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-text-secondary">
             Port check sebelum launch
@@ -55,22 +56,42 @@ export function Topbar() {
       </div>
 
       <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4 xl:flex-row xl:items-center xl:justify-between">
-        <div className="flex flex-wrap gap-2">
-          {presetLabels.map((preset) => (
-            <button
-              key={preset.id}
-              type="button"
-              onClick={() => setActiveScenario(preset.id)}
-              className={cn(
-                "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition",
-                preset.id === activeScenarioId
-                  ? "border-accent-cyan/40 bg-accent-cyan/10 text-accent-cyan"
-                  : "border-white/10 bg-white/5 text-text-secondary hover:border-white/20 hover:text-text-primary",
-              )}
+        <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
+          <div className="flex flex-wrap gap-2">
+            {presetLabels.map((preset) => (
+              <button
+                key={preset.id}
+                type="button"
+                onClick={() => setActiveScenario(preset.id)}
+                className={cn(
+                  "rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition",
+                  preset.id === activeScenarioId
+                    ? "border-accent-cyan/40 bg-accent-cyan/10 text-accent-cyan"
+                    : "border-white/10 bg-white/5 text-text-secondary hover:border-white/20 hover:text-text-primary",
+                )}
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href="/input"
+              className="inline-flex items-center gap-2 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-accent-cyan transition hover:border-accent-cyan/50"
             >
-              {preset.label}
-            </button>
-          ))}
+              <FolderInput className="h-3.5 w-3.5" />
+              Mulai input
+            </Link>
+            <Link
+              href="/reports"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-text-secondary transition hover:border-white/20 hover:text-text-primary"
+            >
+              <FileSpreadsheet className="h-3.5 w-3.5" />
+              Buka report
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-text-secondary">
