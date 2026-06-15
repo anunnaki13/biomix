@@ -71,10 +71,30 @@
 
 ### Reports
 
-- [ ] **REPT-01**: User can open a report page containing project/scenario title, decision summary, assumptions, OPEX, CAPEX, transport, financing, profit, break-even, sensitivity, warnings, and disclaimer.
-- [ ] **REPT-02**: User can print or export the report to PDF.
-- [ ] **REPT-03**: User can export calculation/report data to CSV and JSON.
-- [ ] **REPT-04**: User sees the blueprint disclaimer that simulation results require lab tests, production trials, contract negotiation, supplier validation, transporter validation, and legal/tax review.
+- [x] **REPT-01**: User can open a report page containing project/scenario title, decision summary, assumptions, OPEX, CAPEX, transport, financing, profit, break-even, sensitivity, warnings, and disclaimer.
+- [x] **REPT-02**: User can print or export the report to PDF.
+- [x] **REPT-03**: User can export calculation/report data to CSV and JSON.
+- [x] **REPT-04**: User sees the blueprint disclaimer that simulation results require lab tests, production trials, contract negotiation, supplier validation, transporter validation, and legal/tax review.
+
+## v1.1 Requirements
+
+### Workflow Guidance
+
+- [ ] **FLOW-01**: User can see a clear start point on the dashboard that routes them into the recommended BIOMIX input workflow.
+- [ ] **FLOW-02**: User can see completion progress for the major input groups so they know which sections are unfinished.
+- [ ] **FLOW-03**: User can see a compact scenario readiness summary that combines validation, data completeness, and feasibility status.
+
+### Data Entry Ergonomics
+
+- [ ] **UX-INPUT-01**: User can review CAPEX, OPEX, and feedstock data in denser business-friendly tables without losing add/remove flexibility.
+- [ ] **UX-INPUT-02**: User can see per-section summaries or totals while editing so they do not need to bounce back to the dashboard constantly.
+- [ ] **UX-INPUT-03**: User can identify validation errors and incomplete assumptions with more direct section-level guidance.
+
+### Review and Reporting Polish
+
+- [ ] **UX-REPORT-01**: User can print a cleaner investor/offtaker report with improved hierarchy and fewer dashboard-style distractions.
+- [ ] **UX-REPORT-02**: User can export business review data in a format that is easier to scan outside the app.
+- [ ] **UX-REPORT-03**: User can move from dashboard to analysis to report with clearer next-step cues and less navigation ambiguity.
 
 ## v2 Requirements
 
@@ -153,12 +173,21 @@
 | REPT-02 | Phase 7 | Complete |
 | REPT-03 | Phase 7 | Complete |
 | REPT-04 | Phase 7 | Complete |
+| FLOW-01 | Phase 8 | Pending |
+| FLOW-02 | Phase 8 | Pending |
+| FLOW-03 | Phase 8 | Pending |
+| UX-INPUT-01 | Phase 9 | Pending |
+| UX-INPUT-02 | Phase 9 | Pending |
+| UX-INPUT-03 | Phase 9 | Pending |
+| UX-REPORT-01 | Phase 10 | Pending |
+| UX-REPORT-02 | Phase 10 | Pending |
+| UX-REPORT-03 | Phase 10 | Pending |
 
 **Coverage:**
-- v1 requirements: 47 total
-- Mapped to phases: 47
+- v1 requirements: 56 total
+- Mapped to phases: 56
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-15 after Phase 7 completion*
+*Last updated: 2026-06-15 after starting milestone v1.1 Usability Polish*

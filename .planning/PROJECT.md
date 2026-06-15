@@ -14,20 +14,16 @@ The app must answer whether a biomass pellet project is profitable, why, and und
 
 ### Validated
 
-(None yet - ship to validate)
+- ✓ Local-first BIOMIX feasibility MVP ships with a tested calculation engine, editable assumptions, dashboard, analysis, and report export flows. — v1.0 MVP
+- ✓ Users can input production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions without backend setup. — v1.0 MVP
+- ✓ Users can compare scenarios, persist them locally, and export JSON/CSV/PDF-friendly outputs for review. — v1.0 MVP
 
 ### Active
 
-- [ ] Build a Next.js 15+ TypeScript app with Tailwind, shadcn/ui, Recharts, Lucide React, React Hook Form, Zod, Zustand, and Vitest.
-- [ ] Implement a typed calculation engine under `src/lib/calculations/` with formulas separated from UI.
-- [ ] Support multi-feedstock biomass scenarios with editable mix percentages, prices, GCV, moisture, ash, and supply assumptions.
-- [ ] Calculate production, weighted quality, HPT/manual/contract pricing, transport, OPEX, CAPEX, working capital, financing, profit, ROI, payback, break-even, and warnings.
-- [ ] Use pellet output, not raw input, as the denominator for HPP, margin, revenue, and per-ton/per-kg metrics.
-- [ ] Provide conservative, base case, and optimistic scenarios, with default 20 TPD 50:50 sekam padi and sawdust assumptions.
-- [ ] Provide an industrial-finance dashboard with KPI cards, charts, status badges, warnings, and Indonesian business-friendly labels.
-- [ ] Provide input pages for production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing.
-- [ ] Save, duplicate, delete, compare, import, and export scenarios using browser local storage and JSON for MVP.
-- [ ] Provide sensitivity, tornado, break-even, and report export flows for investor/offtaker review.
+- [ ] Add guided onboarding and progress tracking so first-time users know where to start, what is incomplete, and what to do next.
+- [ ] Improve data-entry ergonomics for large CAPEX/OPEX/feedstock datasets with better summary, grouping, and review affordances.
+- [ ] Polish report and print outputs so BIOMIX is easier to share in investor, internal, and offtaker review contexts.
+- [ ] Add lightweight readiness signals that connect input completeness, validation status, and feasibility status in one clear flow.
 
 ### Out of Scope
 
@@ -46,7 +42,9 @@ The old BIOMIX assumptions in the blueprint provide starting presets, not hardco
 - 30 TPD seller-paid transport case: 750 tons/month, 24 ton/truck, 32 trips/month, lab cost Rp200,000/trip, transport between Rp2.5m and Rp6m/trip.
 - 20 TPD mix biomass case: 500 tons/month, 50% sekam padi and 50% sawdust, starting feedstock price Rp500/kg, yield 90% to 92%, GCV target 3,700 to 3,900 kcal/kg.
 
-The MVP is local-first. It should work without backend, login, external APIs, or realtime collaboration. Business accuracy and traceable formulas are more important than visual flourish.
+The v1.0 MVP shipped on 2026-06-15 with the complete first milestone: scaffold, formulas, dashboard, forms, persistence, analysis, and report export. The immediate next need is not more core math, but clearer workflow for first-time operators and cleaner business presentation for review meetings.
+
+The product is still local-first. It should work without backend, login, external APIs, or realtime collaboration. Business accuracy and traceable formulas remain the priority, but usability friction is now the main limiter to adoption.
 
 ## Constraints
 
@@ -71,6 +69,8 @@ The MVP is local-first. It should work without backend, login, external APIs, or
 | Prioritize tested formulas before UI completion | Blueprint final instruction says calculation engine must be correct and tested before dashboard/forms. | - Pending |
 | Keep optional backend, AI advisor, and contract analyzer in v2+ | These are explicitly marked future/non-MVP features. | - Pending |
 | Check ports before launch/dev server | VPS already hosts other apps; BIOMIX must not take a port that is in use. | - Pending |
+| Ship v1.0 before starting usability polish | The core product is now complete enough to shift effort from capability coverage to operator clarity. | ✓ Good |
+| Treat v1.1 as a usability milestone rather than a formula milestone | Current complaints are about flow clarity and review ergonomics, not missing calculations. | ✓ Good |
 
 ## Evolution
 
@@ -90,4 +90,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state.
 
 ---
-*Last updated: 2026-06-14 after initialization from BIOMIX blueprint*
+*Last updated: 2026-06-15 after starting milestone v1.1 Usability Polish*

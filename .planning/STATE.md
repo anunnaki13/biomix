@@ -1,24 +1,38 @@
+---
+gsd_state_version: 1.0
+milestone: v1.1
+milestone_name: Usability Polish
+status: planning
+last_updated: "2026-06-15T03:16:19.322Z"
+last_activity: 2026-06-15
+progress:
+  total_phases: 3
+  completed_phases: 0
+  total_plans: 9
+  completed_plans: 0
+  percent: 0
+---
+
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-06-14)
+See: .planning/PROJECT.md (updated 2026-06-15)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** MVP complete - ready for review, shipping, or next milestone
+**Current focus:** Phase 8 planning and guided workflow polish
 
 ## Current Position
 
-Phase: 7 of 7 (Report Export and MVP Polish)
-Plan: 3 of 3 in current phase
-Status: MVP complete
-Last activity: 2026-06-15 - Completed report page, export flows, disclaimer coverage, and MVP verification
-
-Progress: [##########] 100%
+Phase: 8 of 10 (Guided Workflow and Completion Signals)
+Plan: 0 of 3 in current phase
+Status: Planning
+Last activity: 2026-06-15 — Defined milestone v1.1 roadmap and Phase 8 plans
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 25
 - Average duration: 11 min
 - Total execution time: 3.6 hours
@@ -35,6 +49,7 @@ Progress: [##########] 100%
 | 6 | 3 | 23 min | 8 min |
 
 **Recent Trend:**
+
 - Last 5 plans: 8m, 8m, 7m, 7m, 7m
 - Trend: Improving
 
@@ -66,11 +81,12 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-- None. MVP roadmap complete.
+- Define and execute v1.1 usability polish phases 8-10.
 
 ### Blockers/Concerns
 
 Known limits are now explicit rather than blockers:
+
 - PDF export uses browser print flow rather than a dedicated PDF rendering library.
 - Report CSV is a flat business-export table, not a multi-sheet workbook.
 
@@ -86,5 +102,5 @@ Known limits are now explicit rather than blockers:
 ## Session Continuity
 
 Last session: 2026-06-15
-Stopped at: MVP roadmap complete with reports/export live; next focus can move to review, ship, or v2 planning
+Stopped at: v1.0 shipped to GitHub and milestone v1.1 started for usability polish planning
 Resume file: None
