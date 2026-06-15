@@ -5,21 +5,21 @@
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** The app must answer whether a biomass pellet project is profitable, why, and under which assumptions, with every business number traceable to a tested calculation formula.
-**Current focus:** Phase 7 - Report Export and MVP Polish
+**Current focus:** MVP complete - ready for review, shipping, or next milestone
 
 ## Current Position
 
 Phase: 7 of 7 (Report Export and MVP Polish)
-Plan: 0 of 3 in current phase
-Status: Phase 6 complete
-Last activity: 2026-06-15 - Completed live sensitivity runner, tornado-style analysis, and break-even route
+Plan: 3 of 3 in current phase
+Status: MVP complete
+Last activity: 2026-06-15 - Completed report page, export flows, disclaimer coverage, and MVP verification
 
-Progress: [#########-] 88%
+Progress: [##########] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 22
+- Total plans completed: 25
 - Average duration: 11 min
 - Total execution time: 3.6 hours
 
@@ -62,14 +62,17 @@ Recent decisions affecting current work:
 - Phase 5: Run imported JSON back through the schema before accepting it into the store.
 - Phase 6: Sensitivity should be expressed as explicit scenario mutations so the analysis stays auditable.
 - Phase 6: Break-even views should mix raw thresholds with interpretive context so the numbers are easier to act on.
+- Phase 7: Report export should reuse the same active scenario engine outputs and rely on browser print for PDF-friendly MVP export.
 
 ### Pending Todos
 
-- Phase 7 planning and execution.
+- None. MVP roadmap complete.
 
 ### Blockers/Concerns
 
-None yet.
+Known limits are now explicit rather than blockers:
+- PDF export uses browser print flow rather than a dedicated PDF rendering library.
+- Report CSV is a flat business-export table, not a multi-sheet workbook.
 
 ## Deferred Items
 
@@ -82,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14
-Stopped at: Phase 6 completed and analysis routes are live; next focus is reports/export and final MVP polish
+Last session: 2026-06-15
+Stopped at: MVP roadmap complete with reports/export live; next focus can move to review, ship, or v2 planning
 Resume file: None

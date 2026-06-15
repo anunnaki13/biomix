@@ -16,7 +16,7 @@ The v1 roadmap turns the BIOMIX blueprint into a usable local-first feasibility 
 - [x] **Phase 4: Input Forms** - Let users edit all production, feedstock, quality, pricing, OPEX, CAPEX, transport, and financing assumptions.
 - [x] **Phase 5: Scenario Management and Persistence** - Save, duplicate, delete, compare, import, and export scenarios locally.
 - [x] **Phase 6: Sensitivity and Break-Even** - Add sensitivity table, tornado chart, and break-even analysis.
-- [ ] **Phase 7: Report Export and MVP Polish** - Add report page, print/PDF/CSV/JSON export, and acceptance polish.
+- [x] **Phase 7: Report Export and MVP Polish** - Add report page, print/PDF/CSV/JSON export, and acceptance polish.
 
 ## Phase Details
 
@@ -139,9 +139,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 07-01: Build report page and print-friendly layout.
-- [ ] 07-02: Implement PDF, CSV, and JSON exports.
-- [ ] 07-03: Run MVP acceptance pass, fix polish gaps, and document known limits.
+- [x] 07-01: Build report page and print-friendly layout.
+- [x] 07-02: Implement PDF, CSV, and JSON exports.
+- [x] 07-03: Run MVP acceptance pass, fix polish gaps, and document known limits.
 
 ## Progress
 
@@ -156,7 +156,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 4. Input Forms | 4/4 | Complete | 2026-06-15 |
 | 5. Scenario Management and Persistence | 3/3 | Complete | 2026-06-15 |
 | 6. Sensitivity and Break-Even | 3/3 | Complete | 2026-06-15 |
-| 7. Report Export and MVP Polish | 0/3 | Not started | - |
+| 7. Report Export and MVP Polish | 3/3 | Complete | 2026-06-15 |
 
 ## Coverage
 
